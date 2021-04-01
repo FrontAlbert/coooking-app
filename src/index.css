@@ -1,13 +1,731 @@
+html {
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+}
+article,
+aside,
+footer,
+header,
+nav,
+section {
+    display: block;
+}
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+figcaption,
+figure,
+main {
+    display: block;
+}
+figure {
+    margin: 1em 40px;
+}
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+}
+b,
+strong {
+    font-weight: inherit;
+}
+b,
+strong {
+    font-weight: bolder;
+}
+code,
+kbd,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+dfn {
+    font-style: italic;
+}
+mark {
+    background-color: #ff0;
+    color: #000;
+}
+small {
+    font-size: 80%;
+}
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+sub {
+    bottom: -0.25em;
+}
+sup {
+    top: -0.5em;
+}
+audio,
+video {
+    display: inline-block;
+}
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+img {
+    border-style: none;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+button,
+input {
+    overflow: visible;
+}
+button,
+select {
+    text-transform: none;
+}
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+}
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+}
+fieldset {
+    padding: 0.35em 0.75em 0.625em;
+}
+legend {
+    box-sizing: border-box;
+    color: inherit;
+    display: table;
+    max-width: 100%;
+    padding: 0;
+    white-space: normal;
+}
+progress {
+    display: inline-block;
+    vertical-align: baseline;
+}
+textarea {
+    overflow: auto;
+}
+[type="checkbox"],
+[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+[type="search"] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px;
+}
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit;
+}
+details,
+menu {
+    display: block;
+}
+summary {
+    display: list-item;
+}
+canvas {
+    display: inline-block;
+}
+template {
+    display: none;
+}
+[hidden] {
+    display: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: "";
+    clear: both;
+    height: 0;
+}
+
+html {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+/* Global Styling */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
+body {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333;
+    overflow-x: hidden;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.wrapper {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0;
+    padding-left: 10px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    font-size: 8rem;
+    font-family: "Dancing Script", cursive;
+    font-weight: 700;
+    animation: move 1s 1s ease-in-out forwards;
+}
+
+h2,
+p {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    transition: 0.5s;
+}
+
+/* Create the growing and shrinking red lines in recipe */
+h2::before {
+    content: "";
+    width: 50px;
+    height: 5px;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ec524b;
+    transition: 0.5s;
+}
+
+h2::after {
+    content: "";
+    width: 0px;
+    height: 5px;
+    position: relative;
+    display: block;
+    top: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ec524b;
+    transition: 0.5s;
+}
+
+.recipe:hover h2::after,
+.recipe:focus h2::after {
+    width: 100px;
+}
+
+.recipe:hover h2::before,
+.recipe:focus h2::before {
+    width: 0;
+}
+
+p {
+    text-align: left;
+    padding-right: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Set to each individual letter of the H1 opening */
+span {
+    opacity: 0;
+    transition: all 0.4s ease;
+    margin: auto;
+}
+
+span.fade {
+    opacity: 1;
+}
+
+@keyframes move {
+    0% {
+        top: 50%;
+    }
+    100% {
+        top: 25%;
+    }
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* black tint overlay for video */
+.overlay {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+.search-box {
+    box-sizing: content-box;
+    position: relative;
+    background-color: white;
+    height: 80px;
+    border-radius: 80px;
+    padding: 10px;
+    width: 500px;
+    transition: 1s;
+    z-index: 5;
+    opacity: 0.8;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Fade In delay for the h1 text animation to go first */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+
+.search-box:hover,
+.search-box:focus,
+.search-box:focus-within {
+    opacity: 0.7;
+}
+
+.search-box:hover > .search-button,
+.search-box:focus > .search-button,
+.search-box:focus-within > .search-button {
+    background-color: #333;
+}
+
+.search-box:hover > .search-text,
+.search-box:focus > .search-text,
+.search-box:focus-within > .search-text {
+    color: #333;
+}
+
+.search-button {
+    text-decoration: none;
+    border: none;
+    float: right;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.search-button i {
+    font-size: 4rem;
+    color: white;
+}
+
+.search-text {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding-left: 20px;
+    color: white;
+    font-family: "Noto Sans", sans-serif;
+    line-height: 80px;
+    width: 400px;
+    transition: 1s;
+    font-size: 4rem;
+    position: relative;
+    z-index: 10;
+    transition: 1s;
+}
+
+.results {
+    display: none;
+    padding: 40px 0;
+}
+
+.show {
+    display: initial;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 50px 0;
+}
+
+li {
+    width: calc((100% - 3%) / 2);
+    margin-right: 3%;
+    padding: 20px 0;
+}
+
+li:nth-child(even) {
+    margin-right: 0;
+}
+
+.core-content {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+li img {
+    width: 40%;
+    margin: 20px;
+    border-radius: 20px 0 20px 0;
+    border: 10px solid #333;
+    transition: 0.5s;
+}
+
+.recipe:hover img {
+    border: 10px solid #ec524b;
+    border-radius: 0 20px 0 20px;
+}
+
+.info {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.info p {
+    font-size: 2rem;
+}
+
+.re-direct {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+    position: relative;
+}
+
+.to-top {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.re-direct a {
+    font-size: 2rem;
+    background-color: #333;
+    border: 3px solid #333;
+    padding: 20px 15px;
+    border-radius: 15px;
+    color: #fff;
+    transition: 0.5s;
+    position: relative;
+}
+
+/* Start of the double hover effect */
+.recipe:hover a,
+.recipe:focus a {
+    background-color: transparent;
+    border-radius: 20px 0 20px 0;
+    border: 3px solid #ec524b;
+    color: #ec524b;
+}
+
+.re-direct a::before {
+    content: "";
+    background-color: #ec524b;
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 15px 0 15px 0;
+    transition: 0.5s;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.re-direct a:hover::before {
+    width: 100%;
+}
+
+.re-direct a:hover {
+    color: white;
+}
+
+.to-top a {
+    font-family: "Dancing Script", cursive;
+    font-weight: 700;
+    padding: 12px 18px;
+    font-size: 7rem;
+    color: #333;
+    position: relative;
+    transition: 0.5s;
+}
+
+.to-top a:hover {
+    color: white;
+}
+
+/* "Tomato paste" splash effect */
+.to-top a::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: url(./assets/tomato-splash.png);
+    background-size: cover;
+    transform-origin: left;
+    transition: 0.5s;
+}
+
+.to-top a:hover::before {
+    width: 100%;
+}
+
+/* Footer styling starts here */
+footer {
+    display: none;
+    color: #fff;
+    font-size: 2rem;
+}
+
+.background {
+    background-color: #333;
+}
+
+footer p {
+    text-align: center;
+}
+
+footer a {
+    color: #fff;
+    transition: 0.5s;
+}
+
+footer a:hover,
+footer a:focus {
+    color: #ec524b;
+}
+
+/* Media Queries */
+
+@media (max-width: 1400px) {
+    /* stack the content of each recipe */
+    .core-content {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    li img,
+    .info {
+        width: 60%;
+    }
+}
+
+@media (max-width: 800px) {
+    /* expend each recipe for more space */
+    li {
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px 0;
+    }
+
+    li:nth-child(even) {
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    /* reduce the h1 and search bar for the viewport width */
+    h1 {
+        font-size: 6rem;
+        padding-left: 20px;
+    }
+
+    .search-box {
+        height: 60px;
+        border-radius: 60px;
+        padding: 10px;
+        width: 400px;
+    }
+
+    .search-button {
+        width: 60px;
+        height: 60px;
+    }
+
+    .search-button i {
+        font-size: 2.5rem;
+        color: white;
+    }
+
+    .search-text {
+        padding-left: 20px;
+        line-height: 60px;
+        width: 300px;
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    /* Reduce the tomato splash link for viewport size */
+    .to-top a {
+        font-size: 5rem;
+    }
+
+    .to-top a {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 450px) {
+    /* Final adjustment to h1 and search bar */
+    h1 {
+        font-size: 4rem;
+        padding-left: 35px;
+    }
+
+    .search-box {
+        height: 60px;
+        border-radius: 60px;
+        padding: 10px;
+        width: 300px;
+    }
+    .search-text {
+        padding-left: 20px;
+        line-height: 60px;
+        width: 200px;
+        font-size: 2.5rem;
+    }
 }
